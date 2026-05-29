@@ -1,0 +1,82 @@
+AZIENDA(
+    PI(PK),
+    ragione_sociale,
+    responsabile,
+    email,
+    settore,
+    codice_ATECO,
+    telefono
+)
+
+SEDE_OPERATIVA(
+    ID_S(PK),
+    CAP,
+    provincia,
+    indirizzo,
+    citta,
+    PI(FK)
+)
+
+SEDE_LEGALE(
+    ID_L(PK),
+    CAP,
+    provincia,
+    indirizzo,
+    citta,
+    PI(FK)
+)
+
+TUTOR_AZIENDALE(
+    CF_TA(PK),
+    nome,
+    cognome,
+    inquadramento,
+    competenze,
+    esperienze,
+    email,
+    telefono
+)
+
+ATTIVITA(
+    titolo(PK),
+    descrizione,
+    periodo,
+    orario,
+    att_oggetto,
+    max_studenti,
+    competenze_ric,
+    ambito,
+    PI(FK),
+    CF_TA(FK)
+)
+
+STUDENTE(
+    CF_S(PK),
+    nome,
+    cognome,
+    data_nascita,
+    classe,
+    indirizzo_studi,
+    telefono,
+    email,
+    competenze,
+    CF_TS(FK)
+)
+
+TUTOR_SCOLASTICO(
+    CF_TS(PK),
+    nome,
+    cognome
+)
+
+PARTECIPA(
+    CF_S(FK),
+    titolo(FK),
+    PRIMARY KEY(CF_S, titolo)
+)
+
+COMMENTO(
+    ID_C(PK),
+    testo,
+    CF_S(FK)
+)
