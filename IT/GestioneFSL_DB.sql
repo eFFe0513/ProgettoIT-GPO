@@ -34,19 +34,22 @@ CREATE TABLE Sede_legale (
 
 CREATE TABLE Tutor_aziendale (
     CF_TA VARCHAR (30) PRIMARY KEY,
+    PI VARCHAR(30),
     nome VARCHAR (50),
     cognome VARCHAR (50),
     inquadramento VARCHAR (50),
     competenze TEXT,
     esperienze TEXT,
     email VARCHAR (50),
-    telefono VARCHAR (15)
+    telefono VARCHAR (15),
+    FOREIGN KEY (PI) REFERENCES Azienda (PI)
 );
 
 CREATE TABLE Tutor_scolastico (
     CF_TS VARCHAR (30) PRIMARY KEY,
     nome VARCHAR (50),
-    cognome VARCHAR (50)
+    cognome VARCHAR (50),
+    email VARCHAR(50)
 );
 
 CREATE TABLE Studente (
@@ -82,7 +85,8 @@ CREATE TABLE Attivita (
     FOREIGN KEY (CF_TA) REFERENCES Tutor_aziendale(CF_TA)
 );
 
-CREATE TABLE Partecipa (
+--associazione STUDENTE ATTIVITA' (da attività si risale ad azienda)
+CREATE TABLE Partecipa ( 
     CF_S VARCHAR (30),
     titolo VARCHAR (30),
     PRIMARY KEY (CF_S, titolo),
@@ -91,7 +95,7 @@ CREATE TABLE Partecipa (
 );
 
 CREATE TABLE Commento (
-    ID_C INT PRIMARY KEY,
+    ID_C INT AUTO_INCREMENT PRIMARY KEY,
     testo TEXT,
     CF_S VARCHAR(30),
     FOREIGN KEY (CF_S) REFERENCES Studente(CF_S)
@@ -100,6 +104,14 @@ CREATE TABLE Commento (
 -- Tabella per il salvataggio delle chiavi di accesso per ogni sessione
 CREATE TABLE Chiavi (
     User_id VARCHAR (30) PRIMARY KEY,
-    Tipo VARCHAR (30), -- Azienda o Studente
+    Tipo VARCHAR (30), -- Azienda o Studente o Tutor
     Password_cod VARCHAR (30)
-)
+);
+
+CREATE TABLE Referente (
+    Ref_ID VARCHAR(30) PRIMARY KEY,
+    password VARCHAR(30) UNIQUE
+);
+
+INSERT INTO Referente (Ref_ID, password)
+VALUES ("referente1", "password1"), ("referente2", "password2"), ("referente3", "password3");
