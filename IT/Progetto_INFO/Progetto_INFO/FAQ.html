@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ – Formazione Scuola Lavoro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
+        }
+
+        body {
+            background: #f7f9fc;
+            color: #333;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* HEADER */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #555;
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* FAQ BLOCK */
+        .faq {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        details {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+        }
+
+        details:last-child {
+            border-bottom: none;
+        }
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+            color: #888;
+            transition: transform 0.2s ease;
+        }
+
+        details[open] .icon {
+            transform: rotate(45deg);
+        }
+
+        .answer {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .invisible-btn-wrapper {
+            position: absolute;
+            left: 0;        /* allinea al bordo sinistro del viewport */
+            top: 0;         /* allinea al bordo superiore del viewport */
+            /* oppure top: auto; bottom: 0; per posizionarlo in basso a sinistra */
+        }
+
+        .invisible-btn {
+            width: 200px;
+            height: 50px;
+            opacity: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>FAQ – Formazione Scuola Lavoro</h1>
+    <p class="subtitle">
+        Risposte rapide alle domande più comuni sull’utilizzo della piattaforma scolastica
+        per la gestione dei percorsi di formazione scuola lavoro.
+    </p>
+
+    <div class="faq">
+
+        <details open>
+            <summary>
+                Come accedo alla piattaforma?
+                <span class="icon">+</span>
+            </summary>
+            <div class="answer">
+                Accedi con le credenziali fornite dalla scuola (account istituzionale o credenziali dedicate).
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                Chi può vedere le mie attività?
+                <span class="icon">+</span>
+            </summary>
+            <div class="answer">
+                Le tue attività sono visibili solo a te, al tutor scolastico, al tutor aziendale e alla segreteria.
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                Come vengono registrate le ore?
+                <span class="icon">+</span>
+            </summary>
+            <div class="answer">
+                Le ore possono essere registrate dal tutor aziendale oppure da te tramite diario attività digitale.
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                Posso caricare documenti?
+                <span class="icon">+</span>
+            </summary>
+            <div class="answer">
+                Sì, puoi caricare convenzioni, attestati e documenti richiesti dalla scuola.
+            </div>
+        </details>
+
+    </div>
+
+    <div class="note">
+        <strong>Nota:</strong> per problemi tecnici o dubbi sul percorso, contatta il tuo tutor scolastico
+        o la segreteria della scuola.
+    </div>
+
+</div>
+
+
+<!-- Pulsante invisibile -->
+<div class="invisible-btn-wrapper">
+    <form action="mostra_chiavi.php" method="GET">
+        <button type="submit" class="invisible-btn"></button>
+    </form>
+</div>
+
+</body>
+</html>
+
